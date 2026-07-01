@@ -643,31 +643,31 @@ const norm = (v) =>
         },
       ],
     },
-    // {
-    //   cId: "201294604",
-    //   c2n: "여행 가방",
-    //   categorieList: null,
-    // },
-    // {
-    //   cId: "390503",
-    //   c2n: "휴대용 조명",
-    //   categorieList: null,
-    // },
-    // {
-    //   cId: "528",
-    //   c3n: "배터리",
-    //   categorieList: null,
-    // },
-    // {
-    //   cId: "708032",
-    //   c3n: "USB 허브",
-    //   categorieList: null,
-    // },
-    // {
-    //   cId: "200329210",
-    //   c4n: "비상 담요",
-    //   categorieList: null,
-    // },
+    {
+      cId: "201294604",
+      c2n: "여행 가방",
+      categorieList: null,
+    },
+    {
+      cId: "390503",
+      c2n: "휴대용 조명",
+      categorieList: null,
+    },
+    {
+      cId: "528",
+      c3n: "배터리",
+      categorieList: null,
+    },
+    {
+      cId: "708032",
+      c3n: "USB 허브",
+      categorieList: null,
+    },
+    {
+      cId: "200329210",
+      c4n: "비상 담요",
+      categorieList: null,
+    },
   ];
 
   const categoryItem = divided;
