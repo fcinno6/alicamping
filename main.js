@@ -24,6 +24,7 @@ import {
 import { withRetry } from "./utils/withRetry.js";
 import { fetchByCategory } from "./utils/fetchByCategory.js";
 import { computePriceFields } from "./utils/computePriceFields.js";
+import { convertBrandNamesToKorean } from "./utils/convertBrandNamesToKorean.js";
 
 const SYNONYM_KEY_MAP = { 색깔: "색상" };
 
@@ -515,7 +516,6 @@ const norm = (v) =>
     //   c3n: "아웃도어 가방",
     //   categorieList: null,
     // },
-
     // {
     //   cId: "200015142",
     //   c3n: "아웃도어 장비",
@@ -548,13 +548,11 @@ const norm = (v) =>
     //   c3n: "캠핑 매트",
     //   categorieList: null,
     // },
-
     // {
     //   cId: "200143142",
     //   c3n: "클라이밍 장비",
     //   categorieList: null,
     // },
-
     // -------------------------------------------------------------- 1 -----------------------------------------------------
     {
       cId: "201171006",
@@ -624,7 +622,6 @@ const norm = (v) =>
         },
       ],
     },
-
     {
       cId: "201174907",
       c3n: "텐트 & 그늘막",
@@ -643,31 +640,31 @@ const norm = (v) =>
         },
       ],
     },
-    {
-      cId: "201294604",
-      c2n: "여행 가방",
-      categorieList: null,
-    },
-    {
-      cId: "390503",
-      c2n: "휴대용 조명",
-      categorieList: null,
-    },
-    {
-      cId: "528",
-      c3n: "배터리",
-      categorieList: null,
-    },
-    {
-      cId: "708032",
-      c3n: "USB 허브",
-      categorieList: null,
-    },
-    {
-      cId: "200329210",
-      c4n: "비상 담요",
-      categorieList: null,
-    },
+    // {
+    //   cId: "201294604",
+    //   c2n: "여행 가방",
+    //   categorieList: null,
+    // },
+    // {
+    //   cId: "390503",
+    //   c2n: "휴대용 조명",
+    //   categorieList: null,
+    // },
+    // {
+    //   cId: "528",
+    //   c3n: "배터리",
+    //   categorieList: null,
+    // },
+    // {
+    //   cId: "708032",
+    //   c3n: "USB 허브",
+    //   categorieList: null,
+    // },
+    // {
+    //   cId: "200329210",
+    //   c4n: "비상 담요",
+    //   categorieList: null,
+    // },
   ];
 
   const categoryItem = divided;
@@ -747,13 +744,13 @@ const norm = (v) =>
   // 단일 데이터베이스 요청
 
   // const categoryRes = async () => {
-  //   let res = await ProductDetail.find({ _id: "1005012200259825" })
+  //   let res = await ProductDetail.find({ _id: "4000883842194" })
   //     .populate("cId1", "cId cn")
   //     .populate("cId2", "cId cn")
   //     .lean({ virtuals: true });
 
   //   // listTasks.item.push(...items);
-  //   listTasks.dataBaseRes.push({ _id: "1005012200259825" });
+  //   listTasks.dataBaseRes.push({ _id: "4000883842194" });
   //   listTasks.dataBaseRes.push(...res);
   // };
 
@@ -981,7 +978,7 @@ const norm = (v) =>
           }
 
           if (info.title && stripForCompare(info.title) !== "") {
-            baseDoc.tt = info.title;
+            baseDoc.tt = convertBrandNamesToKorean(info.title);
           }
           if (info.product_score && Number(info.product_score) !== 0) {
             baseDoc.ps = info.product_score;
